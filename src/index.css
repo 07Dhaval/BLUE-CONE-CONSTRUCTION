@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, Avenir, "Segoe UI", Arial, sans-serif;
+  color: var(--brand-navy);
+  background: var(--brand-white);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --brand-blue: #1e4e9f;
+  --brand-blue-bright: #0c72b9;
+  --brand-navy: #002335;
+  --brand-white: #ffffff;
+  --brand-navy-deep: var(--brand-navy);
+  --brand-ink: var(--brand-navy);
+  --brand-accent-light: var(--brand-blue-bright);
+  --brand-sky: color-mix(in srgb, var(--brand-blue-bright) 9%, var(--brand-white));
+  --brand-soft: color-mix(in srgb, var(--brand-blue) 6%, var(--brand-white));
+  --line: color-mix(in srgb, var(--brand-navy) 18%, var(--brand-white));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--brand-white);
+  color: var(--brand-navy);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+body.menu-is-open {
+  overflow: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+:focus-visible {
+  outline: 3px solid var(--brand-blue-bright);
+  outline-offset: 4px;
+}
+
+::selection {
+  color: var(--brand-white);
+  background: var(--brand-blue);
+}
+
+.site-container {
+  width: min(100% - 2rem, 1240px);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .site-container {
+    width: min(100% - 4rem, 1240px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
