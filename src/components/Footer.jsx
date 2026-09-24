@@ -51,9 +51,9 @@ export default function Footer() {
           <h3>Company</h3>
           <a href="#home">Home</a>
           <a href="#about">About us</a>
-          <a href="#sustainability">Sustainability</a>
-          <a href="#approach">Our approach</a>
-          <a href="#projects">Project sectors</a>
+          <a href="#investor-relations">Investor relations</a>
+          <a href="#careers">Careers</a>
+          <a href="#csr">Social services (CSR)</a>
           <a href="#contact">Contact</a>
         </div>
         <div className="footer-column">
@@ -65,9 +65,10 @@ export default function Footer() {
         </div>
         <div className="footer-column">
           <h3>Project enquiries</h3>
+          <a href="#projects">Explore projects</a>
+          <a href="#vendor-registration">Vendor registration</a>
           <a href="#contact">Send an enquiry</a>
           <a href="#contact">Request a call</a>
-          <a href="#contact">Discuss your site</a>
         </div>
       </div>
       <div className="site-container footer-bottom">

@@ -8,8 +8,11 @@
   text-rendering: optimizeLegibility;
   --brand-blue: #1e4e9f;
   --brand-blue-bright: #0c72b9;
+  --brand-accent-on-dark: #78d2f7;
   --brand-navy: #002335;
   --brand-white: #ffffff;
+  --brand-muted: #526875;
+  --brand-surface: #f4f7fa;
   --brand-navy-deep: var(--brand-navy);
   --brand-ink: var(--brand-navy);
   --brand-accent-light: var(--brand-blue-bright);
@@ -43,35 +46,42 @@ body.menu-is-open {
   overflow: hidden;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
+@layer base {
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
 
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
 
-button {
-  cursor: pointer;
-}
+  button {
+    cursor: pointer;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-img,
-svg {
-  display: block;
-}
+  img,
+  svg {
+    display: block;
+  }
 
-img {
-  max-width: 100%;
-  height: auto;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  ::placeholder {
+    color: var(--brand-muted);
+    opacity: 1;
+  }
 }
 
 :focus-visible {
