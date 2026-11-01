@@ -1,4 +1,5 @@
 import { ArrowRight, Check } from "lucide-react";
+import { Link } from "react-router-dom";
 import { siteImages } from "../data/siteData";
 
 // Change only the CSR section colors here.
@@ -24,9 +25,9 @@ export default function FutureSection() {
             <li><Check size={17} /> Local skills and livelihood development</li>
             <li><Check size={17} /> Environmental stewardship</li>
           </ul>
-          <a className="pill-button pill-button-outline" href="#contact">
+          <Link className="pill-button pill-button-outline" to="/contact">
             Partner with our CSR team <ArrowRight size={18} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

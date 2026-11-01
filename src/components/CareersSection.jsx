@@ -1,4 +1,5 @@
 import { ArrowRight, BriefcaseBusiness, HardHat, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const careerPaths = [
   {
@@ -84,12 +85,12 @@ export default function CareersSection() {
               Ready to help build what comes next?
             </h3>
           </div>
-          <a
+          <Link
             className="inline-flex min-h-[50px] shrink-0 items-center justify-center gap-3 rounded-full bg-white px-5 text-[.78rem] font-extrabold text-[var(--brand-navy)] transition-[gap,background-color] duration-200 hover:gap-4 hover:bg-[var(--brand-accent-on-dark)]"
-            href="#contact"
+            to="/career#career-application"
           >
             Share your profile <ArrowRight size={18} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

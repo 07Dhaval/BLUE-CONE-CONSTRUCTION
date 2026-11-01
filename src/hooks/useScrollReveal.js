@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default function useScrollReveal() {
+export default function useScrollReveal(routeKey) {
   useEffect(() => {
     const elements = document.querySelectorAll("[data-reveal]");
 
@@ -23,5 +23,5 @@ export default function useScrollReveal() {
 
     elements.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
-  }, []);
+  }, [routeKey]);
 }

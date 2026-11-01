@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { capabilities } from "../data/siteData";
 
 // Change only the Capabilities section colors here.
@@ -48,9 +49,9 @@ export default function CapabilityShowcase() {
             <div className="capability-tags">
               {item.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
-            <a className="pill-button pill-button-light" href="#contact">
+            <Link className="pill-button pill-button-light" to="/contact">
               Discuss your project <ArrowRight size={18} />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

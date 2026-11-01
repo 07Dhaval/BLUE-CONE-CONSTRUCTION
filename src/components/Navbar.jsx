@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -15,20 +16,20 @@ import navbarLogo from "../assets/images/bluecone2.png";
 const componentTheme = "[--brand-navy:#002335] [--brand-blue:#1e4e9f] [--brand-blue-bright:#0c72b9] [--brand-white:#ffffff]";
 
 const navigation = [
-  { number: "01", label: "About Us", href: "#about", section: "about" },
+  { number: "01", label: "About Us", href: "/about", section: "about" },
   {
     number: "02",
     label: "What We Do",
     children: [
       {
         label: "Services",
-        href: "#capabilities",
+        href: "/services",
         description: "Integrated construction expertise from planning to handover.",
         icon: Building2,
       },
       {
         label: "Projects",
-        href: "#projects",
+        href: "/projects",
         description: "Explore the sectors and spaces we are built to deliver.",
         icon: FolderKanban,
       },
@@ -37,21 +38,21 @@ const navigation = [
   {
     number: "03",
     label: "Investor",
-    href: "#investor-relations",
+    href: "/investor-relations",
     section: "investor-relations",
   },
-  { number: "04", label: "Career", href: "#careers", section: "careers" },
-  { number: "05", label: "Contact", href: "#contact", section: "contact" },
+  { number: "04", label: "Career", href: "/career", section: "careers" },
+  { number: "05", label: "Contact", href: "/contact", section: "contact" },
   {
     number: "06",
     label: "Social Services (CSR)",
-    href: "#csr",
+    href: "/csr",
     section: "csr",
   },
   {
     number: "07",
     label: "Vendor Registration",
-    href: "#vendor-registration",
+    href: "/vendor-registration",
     section: "vendor-registration",
   },
 ];
@@ -78,7 +79,19 @@ const capabilities = [
   "Project Management",
 ];
 
+const routeSections = {
+  "/about": "about",
+  "/services": "capabilities",
+  "/projects": "projects",
+  "/investor-relations": "investor-relations",
+  "/career": "careers",
+  "/contact": "contact",
+  "/csr": "csr",
+  "/vendor-registration": "vendor-registration",
+};
+
 export default function Navbar() {
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [workDropdownOpen, setWorkDropdownOpen] = useState(false);
@@ -90,6 +103,11 @@ export default function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 36);
+
+      if (location.pathname !== "/") {
+        setActiveSection(routeSections[location.pathname] || "");
+        return;
+      }
 
       const current = trackedSections.reduce((active, sectionId) => {
         const section = document.getElementById(sectionId);
@@ -103,7 +121,11 @@ export default function Navbar() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    closeLayers();
+  }, [location.pathname]);
 
   useEffect(() => {
     const overlayOpen = menuOpen || searchOpen;
@@ -148,7 +170,7 @@ export default function Navbar() {
         className={`site-header${scrolled ? " site-header-scrolled" : ""}${layerOpen ? " site-header-layer-open" : ""}${workDropdownOpen ? " site-header-dropdown-open" : ""} ${componentTheme}`}
       >
         <div className="site-container navbar-row">
-          <a className="navbar-brand" href="#home" onClick={closeLayers}>
+          <Link className="navbar-brand" to="/" onClick={closeLayers}>
             <img
               src={navbarLogo}
               alt="Blue Cone Construction"
@@ -156,7 +178,7 @@ export default function Navbar() {
               height="409"
               fetchPriority="high"
             />
-          </a>
+          </Link>
 
           <nav
             ref={desktopNavRef}
@@ -196,7 +218,7 @@ export default function Navbar() {
                       </div>
                       <div className="navbar-dropdown-links">
                         {item.children.map(({ label, href, description, icon: Icon }, index) => (
-                          <a href={href} key={label} onClick={closeLayers}>
+                          <Link to={href} key={label} onClick={closeLayers}>
                             <span className="navbar-dropdown-number">0{index + 1}</span>
                             <span className="navbar-dropdown-icon"><Icon size={21} /></span>
                             <span className="navbar-dropdown-copy">
@@ -204,7 +226,7 @@ export default function Navbar() {
                               <small>{description}</small>
                             </span>
                             <ArrowUpRight size={19} />
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -214,15 +236,15 @@ export default function Navbar() {
 
               const isActive = item.section === activeSection;
               return (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   className={isActive ? "navbar-link-active" : ""}
-                  aria-current={isActive ? "location" : undefined}
+                  aria-current={isActive ? "page" : undefined}
                   onClick={closeLayers}
                 >
                   {item.desktopLabel || item.label}
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -284,11 +306,11 @@ export default function Navbar() {
                     </button>
                     <div id="mobile-work-links" className="menu-dropdown-links">
                       {item.children.map(({ label, href }) => (
-                        <a href={href} key={label} onClick={closeLayers} tabIndex={menuOpen && mobileWorkOpen ? 0 : -1}>
+                        <Link to={href} key={label} onClick={closeLayers} tabIndex={menuOpen && mobileWorkOpen ? 0 : -1}>
                           <span />
                           {label}
                           <ArrowUpRight size={18} />
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -297,19 +319,19 @@ export default function Navbar() {
 
               const isActive = item.section === activeSection;
               return (
-                <a
-                  href={item.href}
+                <Link
+                  to={item.href}
                   key={item.label}
                   style={revealStyle}
                   className={isActive ? "menu-link-active" : ""}
-                  aria-current={isActive ? "location" : undefined}
+                  aria-current={isActive ? "page" : undefined}
                   onClick={closeLayers}
                   tabIndex={menuOpen ? 0 : -1}
                 >
                   <span>{item.number}</span>
                   <strong>{item.label}</strong>
                   <ArrowUpRight size={24} />
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -319,14 +341,14 @@ export default function Navbar() {
               <span className="menu-kicker">Construction capabilities</span>
               {capabilities.map((item) => <span key={item}>{item}</span>)}
             </div>
-            <a className="menu-feature" href="#projects" onClick={closeLayers} tabIndex={menuOpen ? 0 : -1}>
+            <Link className="menu-feature" to="/projects" onClick={closeLayers} tabIndex={menuOpen ? 0 : -1}>
               <img src={towerImage} alt="High-rise construction by Blue Cone" />
               <span>
                 <small>Explore our projects</small>
                 <strong>Built for the ambitions of tomorrow.</strong>
                 <ArrowRight size={19} />
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

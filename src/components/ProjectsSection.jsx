@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { projectTypes } from "../data/siteData";
 
 // Change only the Projects section colors here.
@@ -17,7 +18,7 @@ export default function ProjectsSection() {
         </div>
         <div className="project-grid">
           {projectTypes.map((project) => (
-            <a className="project-tile" href="#contact" key={project.number} data-reveal>
+            <Link className="project-tile" to="/contact" key={project.number} data-reveal>
               <img src={project.image} alt={project.title} />
               <div className="project-tile-shade" />
               <span className="project-number">{project.number}</span>
@@ -26,7 +27,7 @@ export default function ProjectsSection() {
                 <span>{project.category}</span>
                 <h3>{project.title}</h3>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

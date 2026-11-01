@@ -1,9 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import SocialIcon from "./SocialIcon";
 import blueconeLogo from "../assets/images/bluecone2.png";
 
 const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/" },
   { label: "Instagram", href: "https://www.instagram.com/" },
   { label: "Facebook", href: "https://www.facebook.com/" },
   { label: "YouTube", href: "https://www.youtube.com/" },
@@ -17,11 +17,11 @@ export default function Footer() {
     <footer id="site-footer" className={`site-footer ${componentTheme}`}>
       <div className="site-container footer-callout">
         <p>Ready to build what’s next?</p>
-        <a href="#contact">Let’s talk <ArrowUpRight size={25} /></a>
+        <Link to="/contact">Let’s talk <ArrowUpRight size={25} /></Link>
       </div>
       <div className="site-container footer-main">
         <div className="footer-brand-column">
-          <a className="footer-image-logo" href="#home" aria-label="Blue Cone Construction home">
+          <Link className="footer-image-logo" to="/" aria-label="Blue Cone Construction home">
             <img
               src={blueconeLogo}
               alt="Blue Cone Construction"
@@ -29,7 +29,7 @@ export default function Footer() {
               height="409"
               loading="lazy"
             />
-          </a>
+          </Link>
           <p>Thoughtful planning. Dependable construction. Spaces built to last.</p>
           <span className="footer-social-title">Follow Blue Cone</span>
           <div className="footer-socials" aria-label="Social media">
@@ -49,26 +49,26 @@ export default function Footer() {
         </div>
         <div className="footer-column">
           <h3>Company</h3>
-          <a href="#home">Home</a>
-          <a href="#about">About us</a>
-          <a href="#investor-relations">Investor relations</a>
-          <a href="#careers">Careers</a>
-          <a href="#csr">Social services (CSR)</a>
-          <a href="#contact">Contact</a>
+          <Link to="/">Home</Link>
+          <Link to="/about">About us</Link>
+          <Link to="/investor-relations">Investor relations</Link>
+          <Link to="/career">Careers</Link>
+          <Link to="/csr">Social services (CSR)</Link>
+          <Link to="/contact">Contact</Link>
         </div>
         <div className="footer-column">
           <h3>Capabilities</h3>
-          <a href="#capabilities">Commercial</a>
-          <a href="#capabilities">Residential</a>
-          <a href="#capabilities">Infrastructure</a>
-          <a href="#capabilities">Turnkey delivery</a>
+          <Link to="/services">Commercial</Link>
+          <Link to="/services">Residential</Link>
+          <Link to="/services">Infrastructure</Link>
+          <Link to="/services">Turnkey delivery</Link>
         </div>
         <div className="footer-column">
           <h3>Project enquiries</h3>
-          <a href="#projects">Explore projects</a>
-          <a href="#vendor-registration">Vendor registration</a>
-          <a href="#contact">Send an enquiry</a>
-          <a href="#contact">Request a call</a>
+          <Link to="/projects">Explore projects</Link>
+          <Link to="/vendor-registration">Vendor registration</Link>
+          <Link to="/contact">Send an enquiry</Link>
+          <Link to="/contact">Request a call</Link>
         </div>
       </div>
       <div className="site-container footer-bottom">

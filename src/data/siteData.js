@@ -123,3 +123,11 @@ export const approachSteps = [
     copy: "Final inspections and a structured handover complete the journey with confidence.",
   },
 ];
+
+export const contactSettings = {
+  // Add the verified business number with country code and digits only.
+  // Example format: "919876543210"
+  whatsappNumber: "",
+  whatsappMessage:
+    "Hello Blue Cone Construction, I would like to discuss a project with your team.",
+};

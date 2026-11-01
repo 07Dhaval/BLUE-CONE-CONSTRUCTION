@@ -1,4 +1,5 @@
 import { ArrowRight, BarChart3, FileText, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const investorPriorities = [
   {
@@ -65,12 +66,12 @@ export default function InvestorSection() {
               We believe confidence is earned through consistent execution, open
               communication and responsible business practices.
             </p>
-            <a
+            <Link
               className="mt-7 inline-flex min-h-[50px] w-fit items-center justify-center gap-3 rounded-full bg-white px-5 text-[.78rem] font-extrabold text-[var(--brand-navy)] transition-[gap,background-color] duration-200 hover:gap-4 hover:bg-[var(--brand-accent-on-dark)]"
-              href="#contact"
+              to="/contact"
             >
               Request investor information <ArrowRight size={18} />
-            </a>
+            </Link>
           </article>
 
           <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
