@@ -56,19 +56,26 @@ export default function Footer() {
           <Link to="/csr">Social services (CSR)</Link>
           <Link to="/contact">Contact</Link>
         </div>
-        <div className="footer-column">
+        {/* <div className="footer-column">
           <h3>Capabilities</h3>
           <Link to="/services">Commercial</Link>
           <Link to="/services">Residential</Link>
           <Link to="/services">Infrastructure</Link>
           <Link to="/services">Turnkey delivery</Link>
-        </div>
+        </div> */}
         <div className="footer-column">
           <h3>Project enquiries</h3>
           <Link to="/projects">Explore projects</Link>
           <Link to="/vendor-registration">Vendor registration</Link>
           <Link to="/contact">Send an enquiry</Link>
           <Link to="/contact">Request a call</Link>
+        </div>
+        <div className="footer-column">
+          <h3>Address</h3>
+          <p>Blue cone Constructions private limited,</p>
+          <p>Opposite Civil Court,</p>
+          <p>Dediapada, Narmada,</p>
+          <p>Gujarat - 393040</p>
         </div>
       </div>
       <div className="site-container footer-bottom">

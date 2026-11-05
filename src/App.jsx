@@ -17,6 +17,7 @@ import StatementSection from "./components/StatementSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
+import CallButton from "./components/CallButton";
 import AboutPage from "./pages/AboutPage";
 import ServicesPage from "./pages/ServicesPage";
 import ProjectsPage from "./pages/ProjectsPage";
@@ -108,6 +109,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <CallButton />
       <WhatsAppButton />
     </div>
   );

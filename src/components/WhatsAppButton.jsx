@@ -20,7 +20,7 @@ export default function WhatsAppButton() {
 
   return (
     <a
-      className="whatsapp-float"
+      className="contact-float whatsapp-float"
       href={href}
       target="_blank"
       rel="noreferrer"

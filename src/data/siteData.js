@@ -125,9 +125,8 @@ export const approachSteps = [
 ];
 
 export const contactSettings = {
-  // Add the verified business number with country code and digits only.
-  // Example format: "919876543210"
-  whatsappNumber: "",
+  phoneNumber: "+918780249715",
+  whatsappNumber: "918780249715",
   whatsappMessage:
     "Hello Blue Cone Construction, I would like to discuss a project with your team.",
 };
