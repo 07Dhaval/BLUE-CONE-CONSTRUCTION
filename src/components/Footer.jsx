@@ -4,9 +4,9 @@ import SocialIcon from "./SocialIcon";
 import blueconeLogo from "../assets/images/bluecone2.png";
 
 const socialLinks = [
-  { label: "Instagram", href: "https://www.instagram.com/" },
-  { label: "Facebook", href: "https://www.facebook.com/" },
-  { label: "YouTube", href: "https://www.youtube.com/" },
+  { label: "Instagram", href: "https://www.instagram.com/blueconeconstructionspvtltd/" },
+  { label: "Facebook", href: "https://www.facebook.com/blueconeconstructionspvtltd/" },
+  { label: "YouTube", href: "https://www.youtube.com/blueconeconstructionspvtltd/" },
 ];
 
 // Change only the Footer colors here.
